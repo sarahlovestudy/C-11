@@ -1,0 +1,44 @@
+函数对象也称为函数符，是重载了（）操作符的普通类对象
+
+
+class x
+{
+  public :
+      return_value operation() {arguments}const ;
+
+}
+class A
+{
+  public:
+    int operator()(int a ,int b)
+    {
+      std::cout<<a+b<<std::endl;
+    }
+}
+A a;
+a(5);
+这样a就成为一个函数对象，当执行a(5)时候，实际上就是利用了重载符号()
+
+
+class CAdd
+{
+ public:
+  CAdd():m_nSum(0){NULL;}
+  int Operator()(int i)//重载()运算符
+  {
+    m_nSum+=i;
+    returin m_nSum;
+  }
+  int Sum() const
+  {
+    return m_nSum;
+   }
+   
+  privat: int m_nSum; 
+}
+int main()
+{
+  CAdd add;
+  std::function<int (int)>f1 = std::ref(add);//加上ref 是因为function的缺省行为是拷贝一份传递给他的函数的对象，
+                                         //加上ref 
+ }
