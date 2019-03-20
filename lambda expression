@@ -1,0 +1,43 @@
+[ capture clause ](parameters) ->return-type
+{
+definition of method
+}
+
+int main()
+{
+  vector<int >v1={3,1,7,9};
+  vector<int>v2 = {13,2,4,19,0};
+  auto pushinto = [&](int m)
+  {
+     v1.emplace_back(m);
+     v2.empalce_back(m);
+  }
+  pushinto(20);
+  [v1]()
+  {
+    for(auto p = v1.begin();p!=v1.end();p++)
+    cout<<*p<<endl;
+  }
+  int N =5;
+  vector<int>::iterator p = find_if(v1.begin(),v1.end(),[N](int i){return i>N});
+}
+
+捕获选项
+[] capture nothing
+[&]capture any referenced varialbel by reference//外部所有变量引用到lambda函数内
+[=]capture any referenced varialble by making a copy
+[=,&foo]Capture any referenced variable by making a copy, but capture variable foo by reference
+[bar]capture bar by making a copy,don't copy anthing else；//指定引用或拷贝
+[this] capture the this poiter of the enclosing class
+
+
+int main()
+{
+  int i =0,j=1024;
+  auto fun1 =[=,&i]
+  {
+     cout<<&i<<endl;//与外部的i的地址相同
+     cout<<&j<<endl;//与外部j地址不同，是copy过来的
+  }
+}
+
