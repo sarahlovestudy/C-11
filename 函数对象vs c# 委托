@@ -1,6 +1,5 @@
 函数对象也称为函数符，是重载了（）操作符的普通类对象
 
-
 class x
 {
   public :
@@ -42,3 +41,15 @@ int main()
   std::function<int (int)>f1 = std::ref(add);//加上ref 是因为function的缺省行为是拷贝一份传递给他的函数的对象，
                                          //加上ref 
  }
+
+
+
+
+c# delegate void CallDelegate(int a);
+
+void add(int a)
+{ 
+  a=a-1;
+}
+
+CallDelegate delegate= new CallDelegate(add);
